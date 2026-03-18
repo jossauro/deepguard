@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepguard"
+version = "1.0.0"
+description = "Offline image forensics and deepfake detection from your terminal"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Camilo Girardelli", email = "camilo@girardellitecnologia.com"},
+]
+keywords = ["forensics", "deepfake", "detection", "image-analysis", "authentication"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "opencv-python-headless>=4.8.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "Jinja2>=3.1.0",
+    "scikit-image>=0.21.0",
+    "exifread>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/cameronwdata/deepguard"
+Documentation = "https://github.com/cameronwdata/deepguard#readme"
+Repository = "https://github.com/cameronwdata/deepguard.git"
+Issues = "https://github.com/cameronwdata/deepguard/issues"
+
+[project.scripts]
+deepguard = "deepguard.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+deepguard = ["templates/*.html"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip_gitignore = true
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
