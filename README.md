@@ -124,7 +124,7 @@ pip install deepguard
 
 ### From Source
 ```bash
-git clone https://github.com/cameronwdata/deepguard.git
+git clone https://github.com/camilooscargbaptista/deepguard.git
 cd deepguard
 pip install -e .
 ```

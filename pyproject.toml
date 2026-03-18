@@ -39,10 +39,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/cameronwdata/deepguard"
-Documentation = "https://github.com/cameronwdata/deepguard#readme"
-Repository = "https://github.com/cameronwdata/deepguard.git"
-Issues = "https://github.com/cameronwdata/deepguard/issues"
+Homepage = "https://github.com/camilooscargbaptista/deepguard"
+Documentation = "https://github.com/camilooscargbaptista/deepguard#readme"
+Repository = "https://github.com/camilooscargbaptista/deepguard.git"
+Issues = "https://github.com/camilooscargbaptista/deepguard/issues"
 
 [project.scripts]
 deepguard = "deepguard.cli:main"

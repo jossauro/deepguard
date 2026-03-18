@@ -17,7 +17,7 @@ setup(
     description="Offline image forensics and deepfake detection from your terminal",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cameronwdata/deepguard",
+    url="https://github.com/camilooscargbaptista/deepguard",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={

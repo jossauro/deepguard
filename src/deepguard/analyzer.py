@@ -45,7 +45,7 @@ class ForensicAnalyzer:
         # Initialize report
         report = ForensicReport(
             file_path=file_path,
-            timestamp=time._strftime(time.localtime()),
+            timestamp=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
             overall_verdict=Verdict.AUTHENTIC,
             confidence_score=0.0,
             image_width=image.width,
